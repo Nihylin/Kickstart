@@ -102,6 +102,7 @@ nav {
   position: fixed;
   right: -300px;
   transition: 0.15s linear all;
+  overflow: scroll;
 }
 
 nav ul {
@@ -272,6 +273,10 @@ nav ul li:hover {
 
   nav {
     bottom: 0;
+  }
+
+  nav ul {
+    flex-direction: column-reverse;
   }
 
 }
