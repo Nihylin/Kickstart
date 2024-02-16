@@ -83,6 +83,62 @@ p {
   text-align: justify;
 }
 
+section {
+  margin-bottom: 10px;
+}
+
+/**************** CSS ACCORDIONS ****************/
+
+input {
+  position: absolute;
+  opacity: 0;
+}
+
+.tab {
+  width: 100%;
+  overflow: hidden;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tab label {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.tab label:hover {
+  background: rgba(0, 0, 0, 0.25);
+  font-weight: bold;
+}
+
+.tab label::after {
+  content: "❯";
+  transition: all 0.15s;
+  margin-right: 10px;
+}
+
+.tab .content {
+  max-height: 0;
+  padding: 0 1em;
+  transition: all 0.15s;
+}
+
+input:checked + label::after {
+  transform: rotate(90deg);
+}
+
+input:checked ~ .content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+/**************** MENU ****************/
+
 header {
   position: fixed;
   z-index: 1;
@@ -119,6 +175,7 @@ nav ul li {
   height: 50px;
   cursor: pointer;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 nav ul li a {
@@ -135,16 +192,6 @@ nav ul li a {
 
 nav ul li a:hover {
   font-weight: 700;
-}
-
-nav ul li:first-child {
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-}
-
-nav ul li:last-child {
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
 }
 
 nav ul li:hover {
