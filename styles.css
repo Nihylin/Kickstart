@@ -83,8 +83,8 @@ p {
   text-align: justify;
 }
 
-section {
-  margin-bottom: 10px;
+section:first-child {
+  margin-bottom: 40px;
 }
 
 /**************** CSS ACCORDIONS ****************/
@@ -95,11 +95,10 @@ input {
 }
 
 .tab {
-  width: 100%;
   overflow: hidden;
-  margin: 5px;
+  margin: 15px;
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
 }
 
 .tab label {
