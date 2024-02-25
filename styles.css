@@ -344,11 +344,11 @@ nav ul li:hover {
 }
 
 .slider .sun {
-  left: 7px;
+  left: 6px;
 }
 
 .slider .moon {
-  right: 7px;
+  right: 6px;
 }
 
 input:checked + .slider {
@@ -408,10 +408,6 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
 
   nav {
     bottom: 0;
-  }
-
-  nav ul {
-    flex-direction: column-reverse;
   }
 
 }
