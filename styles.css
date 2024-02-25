@@ -11,11 +11,7 @@
   padding: 0;
 }
 
-/**************** FIN CSS RESET ****************/
-
-/**************** HACK CSS ****************/
-
-/* https://dev.to/gajus/my-favorite-css-hack-32g3 */
+/**************** https://dev.to/gajus/my-favorite-css-hack-32g3 ****************/
 
 /* * { background-color: rgba(255,0,0,.2); }
 * * { background-color: rgba(0,255,0,.2); }
@@ -27,10 +23,10 @@
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); } */
 
-/**************** FIN HACK CSS ****************/
+/**************** GLOBAL DECLARATIONS ****************/
 
 :root {
-  --background-gradient: linear-gradient(45deg, #e35d91, #ed9479);
+  --background-gradient: linear-gradient(45deg, #dc6b96, #e9a089);
   --dark-background-gradient: linear-gradient(45deg, #1a1c44, #181818);
   --font-color: #444;
   --dark-font-color: white;
@@ -93,7 +89,7 @@ main {
 }
 
 p {
-  line-height:1.6;
+  line-height: 1.6;
   text-align: justify;
 }
 
@@ -103,19 +99,19 @@ section:first-child {
 
 /**************** CSS ACCORDIONS ****************/
 
-input {
+.accordions input {
   position: absolute;
   opacity: 0;
 }
 
-.tab {
+.accordions .tab {
   overflow: hidden;
   margin: 15px;
   border-radius: 8px;
   box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
 }
 
-.tab label {
+.accordions .tab label {
   color: white;
   display: flex;
   justify-content: space-between;
@@ -124,33 +120,31 @@ input {
   cursor: pointer;
 }
 
-.tab label:hover {
+.accordions .tab label:hover {
   background: rgba(0, 0, 0, 0.25);
   font-weight: bold;
 }
 
-.tab label::after {
+.accordions .tab label::after {
   content: "❯";
   transition: all 0.15s;
   margin-right: 10px;
 }
 
-.tab .content {
+.accordions .tab .content {
   max-height: 0;
   padding: 0 1em;
   transition: all 0.15s;
 }
 
-input:checked + label::after {
+.accordions input:checked + label::after {
   transform: rotate(90deg);
 }
 
-input:checked ~ .content {
+.accordions input:checked ~ .content {
   max-height: 100vh;
   padding: 1em;
 }
-
-/**************** FIN CSS ACCORDIONS ****************/
 
 /**************** MENU ****************/
 
@@ -201,8 +195,6 @@ nav ul li:hover {
 .menupresent {
   right: 0;
 }
-
-/**************** FIN MENU ****************/
 
 /**************** https://jonsuh.com/hamburgers/ ****************/
 
@@ -297,77 +289,48 @@ nav ul li:hover {
   transform: translate3d(0, 10px, 0) rotate(-45deg);
 }
 
-/**************** FIN HAMBURGER ****************/
-
 /**************** DARK MODE SWITCH ****************/
 
 #switch {
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   right: 0;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  margin: 4.5px;
+  z-index: -1;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#switch:hover {
+  cursor: pointer;
 }
 
 #switch input {
   opacity: 0;
   width: 0;
   height: 0;
+  display: none;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: .0.15s;
+#switch .sun, #switch .moon {
+  font-size: 2rem;
+  user-select: none;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.15s;
+#switch .sun {
+  display: none;
 }
 
-.slider .sun, .slider .moon {
-  position: absolute;
-  top: 2px;
+#switch:has(input:checked) .sun {
+  display: unset;
 }
 
-.slider .sun {
-  left: 6px;
+#switch:has(input:checked) .moon {
+  display: none;
 }
-
-.slider .moon {
-  right: 6px;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(30px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/**************** FIN DARK MODE SWITCH ****************/
 
 /**************** DARK MODE ****************/
 
@@ -380,7 +343,7 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
   background-color: var(--dark-font-color);
 }
 
-/**************** FIN DARK MODE ****************/
+/**************** FONTS ****************/
 
 @font-face {
   font-family: 'Helvetica Neue';
@@ -402,14 +365,13 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
     top: unset;
   }
 
-  .hamburger.is-active:hover {
-    background: rgba(0, 0, 0, 0.1);
-  }
-
   nav {
     bottom: 0;
   }
 
-}
+  #switch {
+    bottom: unset;
+    top: 0;
+  }
 
-/**************** FIN RESPONSIVE ****************/
+}
