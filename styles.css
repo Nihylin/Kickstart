@@ -1,4 +1,4 @@
-/** Minimal CSS Reset **/
+/**************** CSS RESET ****************/
 
 *,
 *::before,
@@ -11,6 +11,10 @@
   padding: 0;
 }
 
+/**************** FIN CSS RESET ****************/
+
+/**************** HACK CSS ****************/
+
 /* https://dev.to/gajus/my-favorite-css-hack-32g3 */
 
 /* * { background-color: rgba(255,0,0,.2); }
@@ -22,6 +26,8 @@
 * * * * * * * { background-color: rgba(255,0,0,.2); }
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); } */
+
+/**************** FIN HACK CSS ****************/
 
 html {
   scroll-behavior: smooth;
@@ -63,6 +69,12 @@ body {
   min-height: 100vh;
   color:#444;
   font-size:1.6rem; /* Default html font size : 16px */
+  background: linear-gradient(45deg, #ed9479, #e35d91);
+}
+
+body.dark {
+  background: linear-gradient(45deg, #ed9479, #e35d91);
+  color: white;
 }
 
 main {
@@ -136,6 +148,8 @@ input:checked ~ .content {
   padding: 1em;
 }
 
+/**************** FIN CSS ACCORDIONS ****************/
+
 /**************** MENU ****************/
 
 header {
@@ -201,7 +215,9 @@ nav ul li:hover {
   right: 0;
 }
 
-/** https://jonsuh.com/hamburgers/ **/
+/**************** FIN MENU ****************/
+
+/**************** https://jonsuh.com/hamburgers/ ****************/
 
 .hamburger {
   position: fixed;
@@ -294,6 +310,71 @@ nav ul li:hover {
   transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
   transform: translate3d(0, 10px, 0) rotate(-45deg);
 }
+
+/**************** FIN HAMBURGER ****************/
+
+/**************** DARK MODE SWITCH ****************/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/**************** FIN DARK MODE SWITCH ****************/
 
 @font-face {
   font-family: 'Helvetica Neue';
