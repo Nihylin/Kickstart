@@ -201,7 +201,7 @@ nav ul li:hover {
 .hamburger {
   position: fixed;
   top: 15px;
-  right: 30px;
+  right: 20px;
   padding: 8px 7px;
   display: inline-block;
   cursor: pointer;
@@ -293,12 +293,11 @@ nav ul li:hover {
 
 #switch {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 22px;
+  right: 27px;
   z-index: -1;
   width: 40px;
   height: 40px;
-  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,8 +315,9 @@ nav ul li:hover {
 }
 
 #switch .sun, #switch .moon {
-  font-size: 2rem;
+  font-size: 3rem;
   user-select: none;
+  font-weight: bold;
 }
 
 #switch .sun {
@@ -371,7 +371,8 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
 
   #switch {
     bottom: unset;
-    top: 0;
+    top: 15px;
+    right: 23px;
   }
 
 }
