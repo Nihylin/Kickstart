@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(event)
   //DÉCLARATIONS
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
+  const darkModeSwitch = document.getElementById('switch')
 
   //INTERACTIONS
   hamburger.addEventListener('click', function()
@@ -12,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function(event)
     } else {
       ouvreMenu();
     }
+  });
+
+  darkModeSwitch.addEventListener('click', function(event) {
+    event.stopPropagation();
   });
 
   window.addEventListener('click', function(event)
@@ -26,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function(event)
   function ouvreMenu() {
     nav.classList.add("menupresent");
     hamburger.classList.add("is-active");
+    darkModeSwitch.classList.add("activeMenuSwitch");
   }
 
   function fermeMenu() {
     nav.classList.remove("menupresent");
     hamburger.classList.remove("is-active");
+    darkModeSwitch.classList.remove("activeMenuSwitch");
   }
 });

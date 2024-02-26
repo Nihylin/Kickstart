@@ -33,6 +33,7 @@
 }
 
 html {
+  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
   /* Definition 1rem = 10px */
   /* https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/ */
@@ -291,7 +292,7 @@ nav ul li:hover {
 
 /**************** DARK MODE SWITCH ****************/
 
-#switch {
+header label {
   position: fixed;
   top: 65px;
   right: 31.5px;
@@ -301,6 +302,7 @@ nav ul li:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.15s;
 }
 
 #switch:hover {
@@ -341,6 +343,10 @@ nav ul li:hover {
   display: none;
 }
 
+.activeMenuSwitch {
+  right: 282px;
+}
+
 /**************** DARK MODE ****************/
 
 body:has(#switch input:checked) {
@@ -379,9 +385,8 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
   }
 
   #switch {
-    top: unset;
-    bottom: 75px;
-    right: 28.5px;
+    top: 15px;
+    right: 15px;
   }
 
 }
