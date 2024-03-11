@@ -362,6 +362,7 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
 
 @font-face {
   font-family: 'Helvetica Neue';
+  font-display: swap;
   src: url('HelveticaNeue.ttf') format('truetype');
 }
 
