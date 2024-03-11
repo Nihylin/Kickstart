@@ -3,7 +3,28 @@ document.addEventListener('DOMContentLoaded', function(event)
   //DÉCLARATIONS
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
-  const darkModeSwitch = document.getElementById('switch')
+  const themeSwitch = document.getElementById("themeSwitch");
+  const sun = document.getElementById("sun");
+  const moon = document.getElementById("moon");
+  const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  let darkMode = darkModeMediaQuery.matches;
+
+  //INITIALISATION DARK MODE
+  //https://www.freecodecamp.org/news/how-to-handle-dark-mode-with-css-and-javascript/
+  darkModeMediaQuery.addEventListener("change", (e) => {
+    if (e.matches) {
+      darkMode = true;
+    } else {
+      darkMode = false;
+    }
+  });
+
+  if (darkMode == true) {
+    document.body.classList.toggle("dark-mode");
+    moon.setAttribute("display", "none");
+  } else {
+    sun.setAttribute("display", "none");
+  }
 
   //INTERACTIONS
   hamburger.addEventListener('click', function()
@@ -15,10 +36,6 @@ document.addEventListener('DOMContentLoaded', function(event)
     }
   });
 
-  darkModeSwitch.addEventListener('click', function(event) {
-    event.stopPropagation();
-  });
-
   window.addEventListener('click', function(event)
   {
     if (!hamburger.contains(event.target))
@@ -27,16 +44,34 @@ document.addEventListener('DOMContentLoaded', function(event)
     }
   });
 
+  themeSwitch.addEventListener('click', function(event) {
+    event.stopPropagation();
+    toggleDarkMode();
+  });
+
   //FONCTIONS
   function ouvreMenu() {
     nav.classList.add("menupresent");
     hamburger.classList.add("is-active");
-    darkModeSwitch.classList.add("activeMenuSwitch");
+    themeSwitch.classList.add("activeMenuSwitch");
   }
 
   function fermeMenu() {
     nav.classList.remove("menupresent");
     hamburger.classList.remove("is-active");
-    darkModeSwitch.classList.remove("activeMenuSwitch");
+    themeSwitch.classList.remove("activeMenuSwitch");
+  }
+
+  function toggleDarkMode() {
+    darkMode = !darkMode;
+    document.body.classList.toggle("dark-mode");
+
+    if (darkMode) {
+      sun.setAttribute("display", "block");
+      moon.setAttribute("display", "none");
+    } else {
+      sun.setAttribute("display", "none");
+      moon.setAttribute("display", "block");
+    }
   }
 });

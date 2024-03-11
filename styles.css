@@ -292,55 +292,39 @@ nav ul li:hover {
 
 /**************** DARK MODE SWITCH ****************/
 
-header label {
+.themeSwitch {
   position: fixed;
   top: 65px;
   right: 31.5px;
   z-index: -1;
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.15s;
+  background-color: transparent;
+  border: 0;
 }
 
-#switch:hover {
+.themeSwitch:hover {
   cursor: pointer;
 }
 
-#switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  display: none;
-}
-
-#switch .sun, #switch .moon {
+.themeSwitch #sun, .themeSwitch #moon {
   width: 100%;
   height: 100%;
   transition: 0.15s;
 }
 
-#switch .moon {
+.themeSwitch #moon {
   fill: var(--font-color);
 }
 
-#switch .sun {
-  display: none;
+.themeSwitch #sun {
   fill: var(--dark-font-color);
+  stroke: var(--dark-font-color);
 }
 
-#switch .sun:hover, #switch .moon:hover {
+.themeSwitch #sun:hover, .themeSwitch #moon:hover {
   fill: #fbc02d;
-}
-
-#switch:has(input:checked) .sun {
-  display: unset;
-}
-
-#switch:has(input:checked) .moon {
-  display: none;
+  stroke: #fbc02d;
 }
 
 .activeMenuSwitch {
@@ -349,12 +333,12 @@ header label {
 
 /**************** DARK MODE ****************/
 
-body:has(#switch input:checked) {
+.dark-mode {
   background: var(--dark-background-gradient);
   color: var(--dark-font-color);
 }
 
-body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked) .hamburger-inner::before, body:has(#switch input:checked) .hamburger-inner::after {
+.dark-mode .hamburger-inner, .dark-mode .hamburger-inner::before, .dark-mode .hamburger-inner::after {
   background-color: var(--dark-font-color);
 }
 
@@ -385,7 +369,7 @@ body:has(#switch input:checked) .hamburger-inner, body:has(#switch input:checked
     bottom: 0;
   }
 
-  #switch {
+  .themeSwitch {
     top: 15px;
     right: 15px;
   }
