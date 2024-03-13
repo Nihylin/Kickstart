@@ -25,11 +25,35 @@
 
 /**************** GLOBAL DECLARATIONS ****************/
 
-:root {
-  --background-gradient: linear-gradient(45deg, #dc6b96, #e9a089);
-  --dark-background-gradient: linear-gradient(45deg, #1a1c44, #181818);
-  --font-color: #444;
-  --dark-font-color: white;
+/* https://www.realtimecolors.com/ */
+[data-theme="light"] {
+  --text: #110a15;
+  --background: #fbf8fc;
+  --primary: #410066;
+  --secondary: #d09fc6;
+  --accent: #761e54;
+
+  --linearPrimarySecondary: linear-gradient(#410066, #d09fc6);
+  --linearPrimaryAccent: linear-gradient(#410066, #761e54);
+  --linearSecondaryAccent: linear-gradient(#d09fc6, #761e54);
+  --radialPrimarySecondary: radial-gradient(#410066, #d09fc6);
+  --radialPrimaryAccent: radial-gradient(#410066, #761e54);
+  --radialSecondaryAccent: radial-gradient(#d09fc6, #761e54);
+}
+
+[data-theme="dark"] {
+  --text: #f1eaf5;
+  --background: #060307;
+  --primary: #da99ff;
+  --secondary: #602f56;
+  --accent: #e189bf;
+
+  --linearPrimarySecondary: linear-gradient(#da99ff, #602f56);
+  --linearPrimaryAccent: linear-gradient(#da99ff, #e189bf);
+  --linearSecondaryAccent: linear-gradient(#602f56, #e189bf);
+  --radialPrimarySecondary: radial-gradient(#da99ff, #602f56);
+  --radialPrimaryAccent: radial-gradient(#da99ff, #e189bf);
+  --radialSecondaryAccent: radial-gradient(#602f56, #e189bf);
 }
 
 html {
@@ -71,9 +95,9 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  font-size:1.6rem; /* Default html font size : 16px */
-  background: var(--background-gradient);
-  color: var(--font-color);
+  font-size: 1.6rem; /* Default html font size : 16px */
+  background: var(--background);
+  color: var(--text);
 }
 
 main {
@@ -92,6 +116,10 @@ main {
 p {
   line-height: 1.6;
   text-align: justify;
+}
+
+ul {
+  list-style-type: none;
 }
 
 section:first-child {
@@ -238,7 +266,7 @@ nav ul li:hover {
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
   width: 40px;
   height: 4px;
-  background-color: var(--font-color);
+  background-color: var(--text);
   border-radius: 4px;
   position: absolute;
   transition-property: transform;
@@ -314,12 +342,12 @@ nav ul li:hover {
 }
 
 .themeSwitch #moon {
-  fill: var(--font-color);
+  fill: var(--text);
 }
 
 .themeSwitch #sun {
-  fill: var(--dark-font-color);
-  stroke: var(--dark-font-color);
+  fill: var(--text);
+  stroke: var(--text);
 }
 
 .themeSwitch #sun:hover, .themeSwitch #moon:hover {
@@ -329,17 +357,6 @@ nav ul li:hover {
 
 .activeMenuSwitch {
   right: 282px;
-}
-
-/**************** DARK MODE ****************/
-
-.dark-mode {
-  background: var(--dark-background-gradient);
-  color: var(--dark-font-color);
-}
-
-.dark-mode .hamburger-inner, .dark-mode .hamburger-inner::before, .dark-mode .hamburger-inner::after {
-  background-color: var(--dark-font-color);
 }
 
 /**************** FONTS ****************/

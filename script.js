@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(event)
-{
+document.addEventListener('DOMContentLoaded', function() {
   //DÉCLARATIONS
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
@@ -20,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function(event)
   });
 
   if (darkMode == true) {
-    document.body.classList.toggle("dark-mode");
+    document.body.setAttribute("data-theme", "dark");
     moon.setAttribute("display", "none");
   } else {
+    document.body.setAttribute("data-theme", "light");
     sun.setAttribute("display", "none");
   }
 
@@ -64,12 +64,13 @@ document.addEventListener('DOMContentLoaded', function(event)
 
   function toggleDarkMode() {
     darkMode = !darkMode;
-    document.body.classList.toggle("dark-mode");
 
     if (darkMode) {
+      document.body.setAttribute("data-theme", "dark");
       sun.setAttribute("display", "block");
       moon.setAttribute("display", "none");
     } else {
+      document.body.setAttribute("data-theme", "light");
       sun.setAttribute("display", "none");
       moon.setAttribute("display", "block");
     }
