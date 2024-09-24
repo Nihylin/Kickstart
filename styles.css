@@ -64,6 +64,10 @@ html {
   font-size: 62.5%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
 h1 {
   font-size: 3.2rem; /* 32px */
 }
@@ -115,7 +119,7 @@ main {
 
 p {
   line-height: 1.6;
-  text-align: justify;
+  text-wrap: pretty;
 }
 
 ul {
